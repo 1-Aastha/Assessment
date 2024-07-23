@@ -7,7 +7,7 @@ public:
         for (int i = 0; i < grid.size(); i++) {
 
             for (int j = 0; j < grid[i].size(); j++) {
-                 //if (grid[i][j] == 1 && (j == 0 || grid[i][j - 1] == 0)) {
+                 //if (grid[i][j] == 1 && (j == 0 || grid[i][j - 1] { //another approach
                     //perimeter++;
                 //}
 
