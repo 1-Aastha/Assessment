@@ -1,3 +1,4 @@
+//Most important: this problem has been in 4 companies' coding round. Mainly 2nd round.
 //1. This is just by using next_permutation(first ieterator, last iterator) func
 class Solution {
 public:
