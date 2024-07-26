@@ -3,8 +3,7 @@ class Solution {
 public:
     int numRookCaptures(vector<vector<char>>& board) {
         int count=0;
-        int rookRow=-1;
-        int rookColumn=-1;
+        int rookRow=,int rookColumn;
         for(int i=0;i<8;i++){ //iterate throught the rows and cols of board to find the position of rook
             for(int j=0;j<8;j++){
                 if(board[i][j]=='R'){
@@ -60,3 +59,23 @@ public:
 
        
 };
+
+
+//2 sol:
+class Solution {
+public:
+    int numRookCaptures(vector<vector<char>>& board) {
+        int i,j;
+        for(i=0;i<8;i++){ //iterate throught the rows and cols of board to find the position of rook
+            for( j=0;j<8;j++){
+                if(board[i][j]=='R'){
+                    break;
+                }
+            }
+        }
+int count=0;
+//left
+//right
+//top
+//bottom
+//return count
