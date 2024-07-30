@@ -26,7 +26,7 @@ Node *deleteNode(Node *head, int pos)
 		head=head->next;
 		delete temp;
 	}
-	else{
+	else{//or(if(pos>0)
 		Node *temp=deleteNode(head->next,pos-1);
 		head->next=temp;
 	}
