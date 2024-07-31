@@ -24,7 +24,7 @@ int binaryToInteger(int n, Node *head) {
     int num= 0; // Integer to store the final answer.
     //Node* p = head;
     while (head!= NULL) {
-        num*= 2;
+        num*= 2; //num=num*2+head->data
         num+=head->data;
         head= head->next; //move to the next node
     }
