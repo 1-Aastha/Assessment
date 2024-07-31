@@ -22,18 +22,14 @@
 
 int binaryToInteger(int n, Node *head) {
     int num= 0;
-    Node* p = head;
-
-    while (p != NULL) {
-        // Multiply the current decimal value by 2
-        num = num * 2;
-        // Add the current node's data (0 or 1)
-        num+=p->data;
-        // Move to the next node
-        p = p->next;
+    //Node* p = head;
+    while (head!= NULL) {
+        num*= 2;
+        num+=head->data;
+        head= head->next;
     }
-
     return num;
+}
 The approach is simple, you have to take an integer to store the final answer, and iterate through the list and add the current element to “ans” and multiply ans by 2.
 
  
