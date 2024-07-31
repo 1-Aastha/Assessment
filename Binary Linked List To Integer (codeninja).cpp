@@ -21,12 +21,12 @@
 ************************************************************/
 
 int binaryToInteger(int n, Node *head) {
-    int num= 0;
+    int num= 0; // Integer to store the final answer.
     //Node* p = head;
     while (head!= NULL) {
         num*= 2;
         num+=head->data;
-        head= head->next;
+        head= head->next; //move to the next node
     }
     return num;
 }
