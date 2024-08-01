@@ -28,7 +28,7 @@
 *****************************************************************/
 #include <unordered_set>//header file
 //find function to check if the current node is in set
-//find function ka return type?
+//find() in C++ is a function that helps to search an element and returns the first occurrence of the element searched inside a specified range
 //find function mein check krte hain ki current end ke equal nhi hai 
 bool detectCycle(Node *head)
 {
