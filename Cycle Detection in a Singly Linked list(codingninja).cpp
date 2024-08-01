@@ -44,8 +44,10 @@ bool detectCycle(Node *head)
         if (p.find(p1) != p.end()) { //Check if the current node is already in the set
           return true;//cycle found
         }
+	      else{
         p.insert(p1); // Insert the current node into the set, insert the address of particular node in the set
         p1 = p1->next;//move to next node
+	      }
       }
       return false;//if p1 is null i.e. we reach the end of the list return false i.e no cycle found
 }
