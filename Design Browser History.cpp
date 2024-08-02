@@ -89,37 +89,99 @@ Time Limit: 1 sec
   class Browser
 {
     public:
-    string homepage;
-    vector<string>p;
-    int i=0;
+    //string homepage;
+    vector<string>p; //vector bnayenge string type ka
+    int i=0;//iterator ya position jo hold krega ki where am i
     
-    Browser(string &homepage)
+    Browser(string &homepage) //pehla constructor call to homepage, toh pehla address vector mein store kr denge
+  //constructor is the special member of class 
     {
-         this->homepage=homepage;
+         //this->homepage=homepage;
          p.push_back(homepage);
-         i=0;
+         //i=0;
     }
 
     void visit(string &url)
-    {
+    { //erase function humein help krta hai koi particular position erase krne mein rather than just clear everything at once
+      if(i==p.size()-1){
+         p.push_back(url);
+      }
+      else{
          p.erase(p.begin()+i+1,p.end());
+      //agr position aur vector ka size same hai mtlb hum bikul end mein
+         //pr agr position aur vector ka size same nhi hai toh koi forward history hai aur iterator lgakr hum us history ko erase kr skte hain
         p.push_back(url);
-        i=p.size()-1;
+      }
+        i++;//iterator vector ke end tkk jayega
     }
 
     string back(int steps)
-    {
-        i=i-steps;
-        if(i<0)
-        i=0;
+    {if(steps<p.size())
+        i=i-steps; //back jana hai toh steps piche piche jaate jayenge
+        else//agr pos 0 se km huyi
+        i=0; //toh pos is 0
         return p[i];
     }
 
     string forward(int steps)
     {
-       i=i+steps;
-        if(i>=p.size())
-        i=p.size()-1;
+       i=i+steps;//forward jana hai toh steps aage jaynege
+        if(i>=p.size()) //to check if position ka size vector se zyada toh nhi
+        i=p.size()-1;//if yes toh position ko -1 kr denge
+        return p[i];
+    }
+};
+
+
+
+
+
+
+
+class Browser
+{
+    public:
+    //string homepage;
+    vector<string>p;//vector bnayenge string type ka
+    int i=0;//iterator ya position jo hold krega ki where am i
+    //position means forward history
+    
+    Browser(string &homepage)//pehla constructor call to homepage, toh pehla address vector mein store kr denge
+    {//constructor is the special member of class 
+         //this->homepage=homepage;
+         p.push_back(homepage);
+         //i=0;
+    }
+
+    void visit(string &url)
+    {  
+         if(i==p.size()-1){
+         p.push_back(url);
+      }
+      else{
+         p.erase(p.begin()+i+1,p.end());
+      //agr position aur vector ka size same hai mtlb hum bikul end mein
+         //pr agr position aur vector ka size same nhi hai toh koi forward history hai aur iterator lgakr hum us history ko erase kr skte hain
+        p.push_back(url);
+      }
+        i++;//iterator vector ke end tkk jayega
+    }
+
+    string back(int steps)
+    {
+        if((i-steps)<p.size())
+        i=i-steps; //back jana hai toh steps piche piche jaate jayenge
+        else//agr pos 0 se km huyi
+        i=0; //toh pos is 0
+        return p[i];
+    }
+
+    string forward(int steps)
+    {
+        if((steps+i)<p.size())
+          i=i+steps;//forward jana hai toh steps aage jaynege
+        else//to check if position ka size vector se zyada toh nhi
+         i=p.size()-1; //if yes toh position ko -1 kr denge
         return p[i];
     }
 };
