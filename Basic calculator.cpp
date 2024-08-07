@@ -22,13 +22,13 @@ int calculate(string s){
        else if (s[i]=='-'){
                 sum+=num*sign;
                 num=0;
-                sign=-1;
+                sign=-1;//minus mila toh -1
             }
 else if(s[i]=='('){
     
-     result.push(sum);
+     result.push(sum);//ek stack lenge jisme sum aur sign store hoga
      result.push(sign);
-     sum=0;
+     sum=0;//then sum num sign default value pe chle jayenge
      num=0;
      sign=1;
 
@@ -37,7 +37,7 @@ else if (s[i]==')'){
     sum+=num*sign;
     num=0;
     int last_sign=result.top();
-    result.pop();
+    result.pop();//stack mein jo sign aur sum hain unko pop krke unko bhi add krna baki expression ke sath
     int last_sum=result.top();
     result.pop();
     sum=sum*last_sign;
