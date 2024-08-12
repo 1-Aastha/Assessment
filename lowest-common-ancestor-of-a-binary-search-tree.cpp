@@ -7,7 +7,7 @@
  *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
  * };
  */
-
+//1st solution
 class Solution {
 public:
     void getAncestor(TreeNode* root, TreeNode* node,vector<TreeNode*> &v){
@@ -43,6 +43,22 @@ public:
     }
     return ans;
     
+    }
+};
+
+//2nd sulution
+class Solution {
+public:
+    
+    TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
+        if(root==NULL)
+        return NULL;
+        else if(p->val<root->val && q->val<root->val)
+        return lowestCommonAncestor(root->left,p,q);
+       else if(p->val>root->val && q->val>root->val)
+        return lowestCommonAncestor(root->right,p,q);
+        else
+        return root;
     }
 };
 
