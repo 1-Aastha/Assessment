@@ -29,25 +29,20 @@ public:
         vector<TreeNode*>a1,a2;
        getAncestor(root,p,a1);
         getAncestor(root,q,a2);
-          reverse(a1.begin(), a1.end());
+         TreeNode* ans;
 
-    reverse(a2.begin(), a2.end());
+    for (TreeNode* t:a2) {
 
-    TreeNode* lca = NULL;
+      if (find(a1.begin(),a1.end(),t)!=a1.end()){
 
-    for (int i = 0; i < min(a1.size(), a2.size()); ++i) {
-
-      if (a1[i] == a2[i])
-
-        lca = a1[i];
-
-      else
+        ans=t;
 
         break;
 
     }
-
-    return lca;
+    }
+    return ans;
+    
     }
 };
 
