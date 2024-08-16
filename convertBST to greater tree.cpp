@@ -10,31 +10,30 @@
  * };
  */
 
-   class Solution {
+  class Solution {
 
 public:
+int sum;
+void inorder(TreeNode* root){
+    if(root!=NULL){
+        inorder(root->right);
+        sum += root->val;
+        root->val=sum;
+        inorder(root->left);
+    }
+}
 
   TreeNode* convertBST(TreeNode* root) {
 
-    int sum = 0;
+    sum = 0;
 
-    DFS(root, sum);
+    inorder(root);
 
     return root;
 
   }
 
-  void DFS(TreeNode* root, int& sum){
-
-    if(!root) return;
-
-    DFS(root->right, sum);
-
-    sum = (root->val += sum);
-
-    DFS(root->left, sum);
-
-  }
-
+  
 };
+
 
